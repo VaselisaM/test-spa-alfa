@@ -19,6 +19,7 @@ interface ProductState {
     products: Product[];
     fetchProducts: () => Promise<void>;
     toggleLike: (id: string) => void;
+    removeProduct: (id: string) => void;
 }
 
 export const useProductsStore = create<ProductState>((set) => ({
@@ -40,5 +41,9 @@ export const useProductsStore = create<ProductState>((set) => ({
             products: state.products.map((product) =>
                 product.id === id ? { ...product, liked: !product.liked } :product
             ),
+        })),
+    removeProduct: (id) =>
+        set((state) => ({
+            products: state.products.filter((product) => product.id !== id),
         })),
 }));

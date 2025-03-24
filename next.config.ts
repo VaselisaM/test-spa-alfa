@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['apod.nasa.gov', 'www.meteorshowers.org'],
+  },
 };
+
+module.exports = nextConfig;
 
 export default nextConfig;
